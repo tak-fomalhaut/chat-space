@@ -43,16 +43,24 @@
     &__group {
       background-color: #2f3e51;
       height: calc(100vh - 100px);
+      overflow: scroll;
       .side-bar__list {
         padding: 20px 20px 40px 20px;
-        &--top {
-          font-size: 15px;
-          margin-bottom: 5px;
-        }
-        &--bottom {
-          font-size: 11px;
+        .link__group {
+          text-decoration: none;
+          color: $white;
+          .side-bar__list--top {
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+          .side-bar__list--bottom {
+            font-size: 11px;
+          }
         }
       }
+    }
+    &__group::-webkit-scrollbar {
+      display: none;
     }
   }
   .chat {
