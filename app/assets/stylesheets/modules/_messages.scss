@@ -128,39 +128,46 @@
         }
       }
     }
-    &__message-form {
+    .form {
       background-color: #d2d2d2;
       height: 90px;
-      display: flex;
-      align-items: center;
-      padding: 0 40px;
-      &--leftbox {
-        height: 50px;
-        color: #434a54;
-        margin-right: 15px;
-        line-height: 50px;
-        width: 100%;
-        position: relative;
-        &--text {
-          width: 100%;
+      padding: 20px 40px;
+      width: calc(100vw - 300px);
+      .new_message{
+        display: flex;
+        .form__box {
           height: 50px;
-          border: none;
-        }
-        .image-icon {
-          position: absolute;
-          right: 10px;
-          .image-btn {
-            display: none;
+          margin-right: 15px;
+          line-height: 50px;
+          width: 100%;
+          position: relative;
+          display: flex;
+          .form__message {
+            width: 100%;
+            height: 50px;
+            color: #434a54;
+            border: none;
+          }
+          .image-icon {
+            position: absolute;
+            right: 10px;
+            .image-btn {
+              display: none;
+            }
           }
         }
-      }
-      &--rightbtn {
-        width: 100px;
-        height: 50px;
-        background-color: $sky;
-        color: $white;
-        line-height: 50px;
-        text-align: center;
+        .submit-box {
+          width: 100px;
+          height: 50px;
+          .form__submit {
+            width: 100px;
+            height: 50px;
+            background-color: $sky;
+            color: $white;
+            line-height: 50px;
+            text-align: center;
+          }
+        }
       }
     }
   }

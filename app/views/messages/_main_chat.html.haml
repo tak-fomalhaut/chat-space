@@ -2,41 +2,24 @@
   .chat__group
     .chat__group--leftbox
       .chat__group--leftbox--title
-        test
+        = @group.name
       .chat__group--leftbox--members
         memberlist :
         .chat__group--leftbox--members--member
-          masahirokurauchi
+          - @group.users.each do |user|
+            = user.name
     .chat__group--btn
-      = link_to "Edit", "#", class: "chat__group--btn--link"
+      = link_to "Edit", edit_group_path(@group), class: "chat__group--btn--link" 
 
   .chat__message-list
-    .chat__message-list--box
-      .chat__message-list--box--name
-        masa
-      .chat__message-list--box--date
-        2020/04/23
-      .chat__message-list--box--text
-        もう少し！
-    .chat__message-list--box
-      .chat__message-list--box--name
-        masa
-      .chat__message-list--box--date
-        2020/04/23
-      .chat__message-list--box--text
-        もう少し！
-    .chat__message-list--box
-      .chat__message-list--box--name
-        masa
-      .chat__message-list--box--date
-        2020/04/23
-      .chat__message-list--box--text
-        もう少し！
+    = render @messages
 
-  .chat__message-form
-    .chat__message-form--leftbox 
-      %input.chat__message-form--leftbox--text{placeholder: "type a message", type: "text"}
-      %label.image-icon
-        = icon('far', 'image')
-        %input.image-btn{type: "file"}
-    %input.chat__message-form--rightbtn{type: "submit", value: "Send"}
+  .form
+    = form_for [@group, @message] do |f|
+      .form__box
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        = f.label :image, class: 'image-icon' do
+          = icon('far', 'image', class: 'icon')
+          = f.file_field :image, class: 'image-btn'
+      .submit-box
+        = f.submit 'Send', class: 'form__submit'
