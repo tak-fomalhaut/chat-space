@@ -15,11 +15,6 @@ class Group < ApplicationRecord
       'まだメッセージがありません'
     end
   end
-  
-  def show_user
-    @groups.users.each do |user|
-      user.name
-    end 
-  end
+
 
 end
